@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/list.css";
 
 class List extends React.Component {
   render() {
@@ -8,9 +9,9 @@ class List extends React.Component {
           {Object.keys(this.props.ideas).map(
             function(key) {
               return (
-                <div>
-                  <i className="fas fa-chevron-circle-down" />
-                  <li className="list-group-item list-group-item-info">
+                <div className="list-item">
+                  <i className="fas fa-chevron-circle-down arrow" />
+                  <li className="list-group-item list-group-item-info text-item">
                     {this.props.ideas[key]}
                   </li>
                 </div>

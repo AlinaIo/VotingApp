@@ -1,0 +1,16 @@
+.list-item {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  z-index: 1;
+  /* font-size: x-large; */
+  color: #31708f;
+}
+
+.text-item {
+  padding-right: 2%;
+}
