@@ -1,27 +1,21 @@
 import React, { Component } from "react";
 import "./App.css";
-import { ListItem } from "./Components/ListItem";
+import { Provider } from "react-redux";
+import store from "./Reducers";
+import { Layout } from "./Routes";
+import "./App.css";
 
 class App extends Component {
+  componentWillMount() {}
+
   render() {
     return (
-      <div className="App">
-        <div id="wrapper">
-          <div className="container">
-            <div className="row">
-              <article className="col-md-12">
-                <h1 className="text-center">Voting list</h1>
-                <h2 className="text-center">
-                  Propose a new idea
-                </h2>
-                <ListItem className="app-container" />
-              </article>
-            </div>
-          </div>
+      <Provider store={store}>
+        <div className="App">
+          <Layout />
         </div>
-      </div>
+      </Provider>
     );
   }
 }
-
-export default App;
+export { App };
