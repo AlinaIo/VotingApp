@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PieChart } from 'react-easy-chart';
 
-class OurPieChart extends Component {
+class OurPieChart extends React.Component {
     render() {
         return (
             <PieChart
@@ -23,4 +23,4 @@ class OurPieChart extends Component {
     }
 }
 
-export default OurPieChart;
+export { OurPieChart };

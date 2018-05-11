@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BarChart } from 'react-easy-chart';
 
-class OurBarChart extends Component {
+class OurBarChart extends React.Component {
     render() {
         return (
             <BarChart
@@ -18,4 +18,4 @@ class OurBarChart extends Component {
     }
 }
 
-export default OurBarChart;
+export { OurBarChart };
