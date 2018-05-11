@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import OurPieChart from './components/piechart';
-import OurBarChart from './components/barchart';
+import OurPieChart from './Components/piechart';
+import OurBarChart from './Components/barchart';
 import { Provider } from "react-redux";
 import store from "./Reducers";
 import { Layout } from "./Routes";
