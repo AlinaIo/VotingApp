@@ -4,6 +4,7 @@ import { VotingPanel } from "./VotingPanel";
 import { VotingActions } from "../Actions";
 import "./TopicListItem.css";
 import { ListGroupItem } from "react-bootstrap";
+import { VotingCounter } from "./VotingCounter";
 
 class TopicListItemClass extends Component {
   render() {
@@ -15,12 +16,11 @@ class TopicListItemClass extends Component {
         <ListGroupItem
           className="topicListItem"
           onClick={() => {
-            if(isSelected){
+            if (isSelected) {
               this.props.update(undefined, "selectedTopic");
-            }
-            else {
+            } else {
               this.props.update(this.props.topic, "selectedTopic");
-            }            
+            }
           }}
         >
           <i
@@ -32,6 +32,13 @@ class TopicListItemClass extends Component {
         </ListGroupItem>
         <div className="topicListItem-votingPanel">
           {isSelected ? <VotingPanel /> : <div />}
+        </div>
+        <div className="topicListItem-votingPanel">
+          {isSelected ? (
+            <VotingCounter endDate={this.props.topic.endDate} />
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     );

@@ -3,7 +3,8 @@ import { VOTING_SELECT_TOPIC, VOTING_UPDATE, VOTING_SEND } from "../Actions";
 const INITIAL_STATE = {
   selectedTopic: undefined,
   cnp: "",
-  option: ""
+  option: "",
+  submitted: false
 };
 const VotingReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -14,7 +15,12 @@ const VotingReducer = (state = INITIAL_STATE, action) => {
       };
     }
     case VOTING_SEND:
-      return INITIAL_STATE;
+      return {
+        ...state,
+        cnp: "",
+        option: "",
+        submitted: true
+      };
     case VOTING_UPDATE:
       return { ...state, [action.payload.prop]: action.payload.value };
     default:
