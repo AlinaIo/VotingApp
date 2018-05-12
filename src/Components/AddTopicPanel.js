@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { TopicsActions } from "../Actions";
 import "./AddTopicPanel.css";
-import SimpleSchema from "simpl-schema";
 
 class AddTopicPanelClass extends Component {
   render() {
@@ -25,6 +24,10 @@ class AddTopicPanelClass extends Component {
           id="ideaItem"
           placeholder="Topic"
           ref="ideaName"
+          max="100"
+          maxlength="200"
+          min="5"
+          required
           className="form-control addTopicPanel-input"
           value={this.props.topic}
           onChange={e => {
@@ -36,6 +39,10 @@ class AddTopicPanelClass extends Component {
           id="ideaItem"
           placeholder="Options (Yes, No)"
           ref="ideaName"
+          max="100"
+          maxlength="200"
+          min="5"
+          required
           className="form-control addTopicPanel-input"
           value={this.props.options}
           onChange={e => {
