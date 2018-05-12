@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { TopicsPage, ChartsPage, AdminTopicsPage } from "../Components";
+import { PollDetails } from "../Components/PollDetails";
+
 const Layout = () => {
   return (
     <BrowserRouter>
@@ -10,6 +12,7 @@ const Layout = () => {
           <Route path="/charts" component={ChartsPage} />
           <Route path="/admin/:accessToken" component={AdminTopicsPage} />
           <Route path="/admin" component={AdminTopicsPage} />
+          <Route path="/polldetails" component={PollDetails} />
         </Switch>
       </div>
     </BrowserRouter>

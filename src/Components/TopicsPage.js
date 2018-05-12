@@ -21,11 +21,13 @@ class TopicsPageClass extends Component {
               <h1 className="text-center">Voting list</h1>
               <h2 className="text-center">Propose a new idea</h2>
               <div className="topicsPage-panels">
-                <div className="topicsPage-topicsList">
-                  <TopicsList topics={this.props.topics} />
-                </div>
-                <div className="topicsPage-votingPanel">
-                  {this.props.selectedTopic ? <VotingPanel /> : <div />}
+                <div className="col-md-6">
+                  <div className="topicsPage-topicsList">
+                    <TopicsList topics={this.props.topics} />
+                  </div>
+                  <div className="topicsPage-votingPanel">
+                    {this.props.selectedTopic ? <VotingPanel /> : <div />}
+                  </div>
                 </div>
               </div>
               {this.renderExtra()}

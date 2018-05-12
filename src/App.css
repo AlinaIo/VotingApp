@@ -70,7 +70,7 @@
 
 .flex-grid {
   display: flex;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
   align-content: center;
 }
 .col {
@@ -84,15 +84,90 @@
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #001a33;
   border: none;
   border-radius: 10px;
-  margin-left: 10rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.button:hover {background-color: #3e8e41}
+.button:hover {background-color: #365382}
 
 .button:active {
-  background-color: #3e8e41;
-  transform: translateY(4px);
+  background-color: #365382;
+  transform: translateY(1px);
 }
+
+.charts-header {
+  margin-bottom: 5rem;
+}
+
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 5rem;
+
+}
+
+.flex-grid-thirds .col {
+  width: 32%;
+}
+
+
+.charts-header {
+  padding: 10px 16px;
+  background: #001a33;
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
+
+.menu-box {
+  height: 360px;
+}
+
+.line-chart-block, .bar-chart-block {
+  height: 400px;
+}
+  .line-chart {
+    height: 200px;
+    background: #11a8ab;
+  }
+  .time-lenght {
+    padding-top: 22px;
+    padding-left: 38px;
+    overflow: hidden;
+  }
+    .time-lenght-btn {
+      display: block;
+      width: 70px;
+      line-height: 32px;
+      background: #50597b;
+      border-radius: 5px;
+      font-size: 14px;
+      text-align: center;
+      margin-right: 5px;
+      -webkit-transition: background .3s;
+      transition: background .3s;
+    }
+      .time-lenght-btn:hover {
+        text-decoration: none;
+        background: #e64c65;
+      }
+  .month-data {
+    padding-top: 28px;
+  }
+    .month-data p {
+      display: inline-block;
+      margin: 0;
+      padding: 0 25px 15px;            
+      font-size: 16px;
+    }
+      .month-data p:last-child {
+        padding: 0 25px;
+        float: right;
+        font-size: 15px;
+      }
+      .increment {
+        color: #e64c65;
+      }

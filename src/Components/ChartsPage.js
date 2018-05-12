@@ -1,23 +1,25 @@
 import React from "react";
-import { OurBarChart } from './Barchart';
+import { OurLineChart } from './Linechart';
 import { OurPieChart } from './Piechart';
 
 const ChartsPage = () => (
     <div>
-        <div>
-            <h2>Do you want to save the world?</h2>
+        <div className="charts-header">
+            <h1>Do you want to save the world?</h1>
         </div>
-        <div>
+        <div className="flex-grid-thirds">
             <button className="button">Yes</button>
             <button className="button">No</button>
             <button className="button">I don't care</button>
         </div>
         <div className="flex-grid">
             <div className="col">
-                <OurBarChart />
             </div>
             <div className="col">
                 <OurPieChart />
+            </div>
+            <div className="col">
+                <OurLineChart />
             </div>
             <div className="col">
             </div>
