@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { VotingPanel } from "./VotingPanel";
 import { VotingActions } from "../Actions";
 import "./TopicListItem.css";
-import { ListGroupItem } from 'react-bootstrap';
+import { ListGroupItem } from "react-bootstrap";
 
 class TopicListItemClass extends Component {
   render() {
@@ -12,18 +12,22 @@ class TopicListItemClass extends Component {
       this.props.selectedTopic._id == this.props.topic._id;
     return (
       <div>
-        <ListGroupItem className="topicListItem" onClick={() => {
+        <ListGroupItem
+          className="topicListItem"
+          onClick={() => {
             this.props.update(this.props.topic, "selectedTopic");
-          }}>
+          }}
+        >
           <i
-             className={`fas fa-chevron-circle-${
+            className={`fas fa-chevron-circle-${
               isSelected ? "down" : "right"
             } arrow`}
           />
-          <div className = 'topicListItem-side'>
-            {this.props.topic.name}
-          </div>
-          </ListGroupItem>
+          <div className="topicListItem-side">{this.props.topic.name}</div>
+        </ListGroupItem>
+        <div className="topicListItem-votingPanel">
+          {isSelected ? <VotingPanel /> : <div />}
+        </div>
       </div>
     );
   }
