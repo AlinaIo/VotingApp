@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { TopicsActions } from "../Actions";
+import { LoginActions } from "../Actions";
 import "./AddTopicPanel.css";
 
 class AddTopicPanelClass extends Component {
@@ -72,8 +72,8 @@ function mapStateToProps(state) {
   };
 }
 const AddTopicPanel = connect(mapStateToProps, {
-  update: TopicsActions.updateTopic,
-  add: TopicsActions.add
+  update: LoginActions.updateTopic,
+  add: LoginActions.add
 })(AddTopicPanelClass);
 
 export { AddTopicPanel };

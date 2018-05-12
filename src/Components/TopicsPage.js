@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { TopicsList } from "./TopicsList";
 import { connect } from "react-redux";
-import { TopicsActions } from "../Actions";
+import { LoginActions, TopicsActions } from "../Actions";
 import { AddTopicPanel } from "./AddTopicPanel";
 import { VotingPanel } from "./VotingPanel";
 import "./TopicsPage.css";
 class TopicsPageClass extends Component {
+  checks() {}
   componentWillMount() {
+    this.checks();
     this.props.get();
   }
+  renderExtra() {}
   render() {
     return (
       <div className="topicsPage">
@@ -25,7 +28,7 @@ class TopicsPageClass extends Component {
                   {this.props.selectedTopic ? <VotingPanel /> : <div />}
                 </div>
               </div>
-              <AddTopicPanel />
+              {this.renderExtra()}
             </article>
           </div>
         </div>
@@ -33,6 +36,25 @@ class TopicsPageClass extends Component {
     );
   }
 }
+
+class AdminTopicsPageClass extends TopicsPageClass {
+  checks() {}
+
+  renderExtra() {
+    return <AddTopicPanel />;
+  }
+}
+function mapStateToPropsAdmin(state) {
+  return {
+    topics: state.Topics.topics,
+    selectedTopic: state.Voting.selectedTopic,
+    loggedIn: state.Login.loggedIn
+  };
+}
+const AdminTopicsPage = connect(mapStateToPropsAdmin, {
+  check: LoginActions.check,
+  get: TopicsActions.get
+})(AdminTopicsPageClass);
 
 function mapStateToProps(state) {
   return {
@@ -44,4 +66,4 @@ const TopicsPage = connect(mapStateToProps, {
   get: TopicsActions.get
 })(TopicsPageClass);
 
-export { TopicsPage };
+export { TopicsPage, AdminTopicsPage };

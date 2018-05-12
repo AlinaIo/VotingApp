@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-import { TopicsPage, ChartsPage } from "../Components";
+import { TopicsPage, ChartsPage, AdminTopicsPage } from "../Components";
 const Layout = () => {
   return (
     <BrowserRouter>
@@ -8,6 +8,7 @@ const Layout = () => {
         <Switch>
           <Route path="/" component={TopicsPage} exact={true} />
           <Route path="/charts" component={ChartsPage} />
+          <Route path="/admin" component={AdminTopicsPage} />
         </Switch>
       </div>
     </BrowserRouter>
