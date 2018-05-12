@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { TopicsActions } from "../Actions";
 import "./AddTopicPanel.css";
+import SimpleSchema from "simpl-schema";
+
 class AddTopicPanelClass extends Component {
   render() {
     return (
@@ -21,7 +23,7 @@ class AddTopicPanelClass extends Component {
         <input
           type="text"
           id="ideaItem"
-          placeholder="e.x.lemmon"
+          placeholder="Topic"
           ref="ideaName"
           className="form-control addTopicPanel-input"
           value={this.props.topic}
@@ -32,7 +34,7 @@ class AddTopicPanelClass extends Component {
         <input
           type="text"
           id="ideaItem"
-          placeholder="e.x.lemmon"
+          placeholder="Options (Yes, No)"
           ref="ideaName"
           className="form-control addTopicPanel-input"
           value={this.props.options}
