@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { TopicsActions } from "../Actions";
+import { LoginActions } from "../Actions";
 import "./AddTopicPanel.css";
 
 class AddTopicPanelClass extends Component {
@@ -11,14 +11,11 @@ class AddTopicPanelClass extends Component {
         onSubmit={e => {
           e.preventDefault();
           console.log(this.props);
-          this.props.add(
-            {
-              name: this.props.topic,
-              options: this.props.options.split(","),
-              endDate: this.props.endDate
-            },
-            this.props.token
-          );
+          this.props.add({
+            name: this.props.topic,
+            options: this.props.options.split(","),
+            endDate: this.props.endDate
+          });
         }}
       >
         <label htmlFor="ideaItem" className="addTopicPanel-margins">
@@ -71,13 +68,12 @@ function mapStateToProps(state) {
   return {
     topic: state.Topics.newTopic,
     options: state.Topics.options,
-    endDate: state.Topics.endDate,
-    token: state.Login.accessToken
+    endDate: state.Topics.endDate
   };
 }
 const AddTopicPanel = connect(mapStateToProps, {
-  update: TopicsActions.updateTopic,
-  add: TopicsActions.add
+  update: LoginActions.updateTopic,
+  add: LoginActions.add
 })(AddTopicPanelClass);
 
 export { AddTopicPanel };

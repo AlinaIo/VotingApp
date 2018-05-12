@@ -8,9 +8,9 @@ const TopicsActions = {
       dispatch({ type: TOPICS_GET, payload: topics.data });
     });
   },
-  add: (topic, token) => dispatch => {
+  add: topic => dispatch => {
     axios
-      .post("/topics", topic, { headers: { Authorization: `Bearer ${token}` } })
+      .post("/topics", topic)
       .then(topic => {
         dispatch({ type: TOPICS_ADD, payload: topic.data });
       })

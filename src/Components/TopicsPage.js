@@ -40,16 +40,10 @@ class TopicsPageClass extends Component {
 }
 
 class AdminTopicsPageClass extends TopicsPageClass {
-  checks() {
-    if (!this.props.match.params.accessToken) {
-      this.props.check();
-    } else {
-      this.props.loggedIn(this.props.match.params.accessToken);
-    }
-  }
+  checks() {}
 
   renderExtra() {
-    return this.props.loggedIn ? <AddTopicPanel /> : <div />;
+    return <AddTopicPanel />;
   }
 }
 function mapStateToPropsAdmin(state) {
@@ -61,7 +55,6 @@ function mapStateToPropsAdmin(state) {
 }
 const AdminTopicsPage = connect(mapStateToPropsAdmin, {
   check: LoginActions.check,
-  loggedIn: LoginActions.loggedIn,
   get: TopicsActions.get
 })(AdminTopicsPageClass);
 
