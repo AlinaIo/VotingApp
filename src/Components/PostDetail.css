@@ -1,0 +1,7 @@
+.div-option {
+    display: flex;
+}
+
+.option {
+    width: 10em !important;
+}

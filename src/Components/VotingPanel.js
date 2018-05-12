@@ -18,7 +18,7 @@ class VotingPanelClass extends Component {
           });
         }}
       >
-        <PollDetails />
+        <PollDetails topic={this.props.selectedTopic}/>
       </form>
     );
   }
