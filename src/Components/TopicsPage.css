@@ -1,6 +1,4 @@
 .topicsPage-panels {
-  display: flex;
-  flex-direction: row;
 }
 .topicsPage-topicsList {
   flex: 1 1;

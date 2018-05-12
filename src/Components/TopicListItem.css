@@ -10,3 +10,12 @@
     display: inline;
   }
 }
+
+.topicListItem-side{
+  display: inline-block;
+  margin-left: 1.7rem;
+}
+
+.topicListItem{
+  margin: 0.5rem 0;
+}
