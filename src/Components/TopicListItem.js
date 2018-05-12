@@ -15,7 +15,7 @@ class TopicListItemClass extends Component {
         <ListGroupItem
           className="topicListItem"
           onClick={() => {
-            if(this.props.selectedTopic){
+            if(isSelected){
               this.props.update(undefined, "selectedTopic");
             }
             else {
