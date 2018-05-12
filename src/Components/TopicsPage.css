@@ -1,9 +1,7 @@
 .topicsPage-panels {
-  display: flex;
-  flex-direction: row;
 }
 .topicsPage-topicsList {
-  flex: 1;
+  flex: 1 1;
 }
 .topicsPage-votingPanel {
   display: inline;
