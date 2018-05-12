@@ -9,9 +9,11 @@ class AddTopicPanelClass extends Component {
         className="addTopicPanel"
         onSubmit={e => {
           e.preventDefault();
+          console.log(this.props);
           this.props.add({
             name: this.props.topic,
-            options: this.props.options.split(",")
+            options: this.props.options.split(","),
+            endDate: this.props.endDate
           });
         }}
       >
@@ -20,10 +22,9 @@ class AddTopicPanelClass extends Component {
         </label>
         <input
           type="text"
-          id="ideaItem"
           placeholder="e.x.lemmon"
-          ref="ideaName"
           className="form-control addTopicPanel-input"
+          required
           value={this.props.topic}
           onChange={e => {
             this.props.update(e.target.value, "newTopic");
@@ -31,13 +32,21 @@ class AddTopicPanelClass extends Component {
         />
         <input
           type="text"
-          id="ideaItem"
           placeholder="e.x.lemmon"
-          ref="ideaName"
           className="form-control addTopicPanel-input"
+          required
           value={this.props.options}
           onChange={e => {
             this.props.update(e.target.value, "options");
+          }}
+        />
+        <input
+          type="datetime-local"
+          className="form-control addTopicPanel-input"
+          required
+          value={this.props.endDate}
+          onChange={e => {
+            this.props.update(e.target.value, "endDate");
           }}
         />
         <button className="btn btn-primary addTopicPanel-margins" type="submit">
@@ -51,7 +60,8 @@ class AddTopicPanelClass extends Component {
 function mapStateToProps(state) {
   return {
     topic: state.Topics.newTopic,
-    options: state.Topics.options
+    options: state.Topics.options,
+    endDate: state.Topics.endDate
   };
 }
 const AddTopicPanel = connect(mapStateToProps, {
