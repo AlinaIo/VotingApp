@@ -5,7 +5,6 @@ axios.defaults.baseURL = "http://localhost:3001/";
 const TopicsActions = {
   get: () => dispatch => {
     axios.get("/topics").then(topics => {
-      console.log(topics);
       dispatch({ type: TOPICS_GET, payload: topics.data });
     });
   },

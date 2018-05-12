@@ -3,7 +3,8 @@ import { TOPICS_ADD, TOPICS_GET, TOPICS_UPDATE } from "../Actions";
 const INITIAL_STATE = {
   topics: [],
   newTopic: "",
-  options: ""
+  options: "",
+  endDate: new Date()
 };
 const TopicsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {

@@ -16,6 +16,25 @@
   align-self: center;
   margin-right: 1em;
 }
+
+@media only screen and (max-width: 600px) {
+  .addTopicPanel {
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 1em;
+  }
+
+  .addTopicPanel-input {
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+
+  .addTopicPanel-margins {
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+}
+
 .list-item {
   position: relative;
 }
