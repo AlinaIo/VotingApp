@@ -21,13 +21,13 @@ class TopicsPageClass extends Component {
               <h1 className="text-center">Voting list</h1>
               <h2 className="text-center">Propose a new idea</h2>
               <div className="topicsPage-panels">
-                <div className="col-md-6">
+                <div className="col-md-6" style={{ flex: 1 }}>
                   <div className="topicsPage-topicsList">
                     <TopicsList topics={this.props.topics} />
                   </div>
-                  <div className="topicsPage-votingPanel">
+                  {/* <div className="topicsPage-votingPanel">
                     {this.props.selectedTopic ? <VotingPanel /> : <div />}
-                  </div>
+                  </div> */}
                 </div>
               </div>
               {this.renderExtra()}
@@ -43,7 +43,7 @@ class AdminTopicsPageClass extends TopicsPageClass {
   checks() {
     if (!this.props.match.params.accessToken) {
       this.props.check();
-    }else{
+    } else {
       this.props.loggedIn(this.props.match.params.accessToken);
     }
   }
@@ -61,7 +61,7 @@ function mapStateToPropsAdmin(state) {
 }
 const AdminTopicsPage = connect(mapStateToPropsAdmin, {
   check: LoginActions.check,
-  loggedIn:LoginActions.loggedIn,
+  loggedIn: LoginActions.loggedIn,
   get: TopicsActions.get
 })(AdminTopicsPageClass);
 

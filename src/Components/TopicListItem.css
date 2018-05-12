@@ -1,12 +1,12 @@
 .topicListItem-item {
   cursor: pointer;
 }
-
+/* 
 .topicListItem-votingPanel {
   display: none;
 }
 @media only screen and (max-width: 600px) {
-  .topicListItem-votingPanel {
-    display: inline;
-  }
+} */
+.topicListItem-votingPanel {
+  display: inline;
 }
