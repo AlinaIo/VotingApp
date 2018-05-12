@@ -2,16 +2,33 @@ import React, { Component } from "react";
 import { PieChart, Legend } from "react-easy-chart";
 
 class OurPieChart extends Component {
+  replaceAll = (search, replacement, text) => {
+    var target = text;
+    return target.split(search).join(replacement);
+  };
+
+  parseResults = () => {
+    let str = JSON.stringify(this.props.voteresults);
+    str = this.replaceAll('name', 'key', str);
+    str = this.replaceAll('count', 'value', str);
+    const object = JSON.parse(str);
+    return object;
+  }
   render() {
+    let res = {};
+    let pieData = [];
+    if (Object.keys(this.props.voteresults).length > 1) {
+      res = this.parseResults(this.props.voteresults);
+      let colors = [{ color: "#001a33" }, { color: "#dce7c5" }];
+      for (const item in res.options) {
+        res.options[item] = { ...res.options[item], ...colors[item] };
+      }
+      pieData = res.options;
+    }
     var divStyle = {
       color: 'white'
     };
     
-    const pieData = [
-      { key: "No", value: 100, color: "#001a33" },
-      { key: "Yes", value: 200, color: "#dce7c5" },
-      { key: "I don't care", value: 50, color: "#e3a51a" }
-    ];
     const config = [
       { color: '#001a33' },
       { color: '#dce7c5' },
@@ -25,7 +42,7 @@ class OurPieChart extends Component {
             innerHoleSize={200}
             data={pieData}
           />
-          <Legend data={pieData} dataId={'key'} config={config} horizontal styles={divStyle}/>
+          <Legend data={pieData} dataId={'key'} config={config} horizontal styles={divStyle} />
         </div>
       </div>
     );

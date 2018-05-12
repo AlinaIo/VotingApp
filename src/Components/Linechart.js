@@ -3,6 +3,9 @@ import { LineChart, Legend } from "react-easy-chart";
 
 class OurLineChart extends Component {
     render() {
+        var divStyle = {
+            color: 'white'
+          };
         return (
             <LineChart
                 xType={'time'}
@@ -10,8 +13,10 @@ class OurLineChart extends Component {
                 grid
                 verticalGrid
                 interpolate={'cardinal'}
+                lineColors={['#e3a51a', '#dce7c5']}
                 width={750}
-                height={250}
+                height={400}
+                styles={divStyle}
                 data={[
                     [
                         { x: '1-Jan-15', y: 20 },
