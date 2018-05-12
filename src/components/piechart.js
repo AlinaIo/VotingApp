@@ -3,6 +3,10 @@ import { PieChart, Legend } from "react-easy-chart";
 
 class OurPieChart extends Component {
   render() {
+    var divStyle = {
+      color: 'white'
+    };
+    
     const pieData = [
       { key: "No", value: 100, color: "#001a33" },
       { key: "Yes", value: 200, color: "#dce7c5" },
@@ -21,7 +25,7 @@ class OurPieChart extends Component {
             innerHoleSize={200}
             data={pieData}
           />
-          <Legend data={pieData} dataId={'key'} config={config} horizontal />
+          <Legend data={pieData} dataId={'key'} config={config} horizontal styles={divStyle}/>
         </div>
       </div>
     );

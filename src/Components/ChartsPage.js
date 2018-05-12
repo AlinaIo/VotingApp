@@ -1,11 +1,11 @@
 import React from "react";
-import { OurBarChart } from './Barchart';
+import { OurLineChart } from './Linechart';
 import { OurPieChart } from './Piechart';
 
 const ChartsPage = () => (
     <div>
         <div className="charts-header">
-            <h2>Do you want to save the world?</h2>
+            <h1>Do you want to save the world?</h1>
         </div>
         <div className="flex-grid-thirds">
             <button className="button">Yes</button>
@@ -14,7 +14,12 @@ const ChartsPage = () => (
         </div>
         <div className="flex-grid">
             <div className="col">
+            </div>
+            <div className="col">
                 <OurPieChart />
+            </div>
+            <div className="col">
+                <OurLineChart />
             </div>
             <div className="col">
             </div>
