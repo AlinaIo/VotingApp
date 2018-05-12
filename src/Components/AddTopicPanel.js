@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { TopicsActions } from "../Actions";
 import "./AddTopicPanel.css";
+
 class AddTopicPanelClass extends Component {
   render() {
     return (
@@ -22,9 +23,12 @@ class AddTopicPanelClass extends Component {
         </label>
         <input
           type="text"
-          placeholder="e.x.lemmon"
-          className="form-control addTopicPanel-input"
+          placeholder="Topic"
+          max="100"
+          maxlength="200"
+          min="5"
           required
+          className="form-control addTopicPanel-input"
           value={this.props.topic}
           onChange={e => {
             this.props.update(e.target.value, "newTopic");
@@ -32,9 +36,12 @@ class AddTopicPanelClass extends Component {
         />
         <input
           type="text"
-          placeholder="e.x.lemmon"
-          className="form-control addTopicPanel-input"
+          placeholder="Options (Yes, No)"
+          max="100"
+          maxlength="200"
+          min="5"
           required
+          className="form-control addTopicPanel-input"
           value={this.props.options}
           onChange={e => {
             this.props.update(e.target.value, "options");

@@ -1,5 +1,6 @@
 import { TOPICS_ADD, TOPICS_GET, TOPICS_UPDATE } from "./types";
 import axios from "axios";
+
 axios.defaults.baseURL = "http://localhost:3001/";
 const TopicsActions = {
   get: () => dispatch => {

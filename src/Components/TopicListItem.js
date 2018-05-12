@@ -1,4 +1,6 @@
 import React from "react";
+import "./AddTopicPanel.css"
+
 const TopicListItem = ({ topic }) => {
   return (
     <div className="list-item">
