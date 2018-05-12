@@ -7,7 +7,7 @@ class OurBarChart extends Component {
       <BarChart
         data={[
           { x: "A", y: 20 },
-          { x: "B", y: 30, color: "#f00" },
+          { x: "B", y: 30, color: "#365382" },
           { x: "C", y: 40 },
           { x: "D", y: 20 },
           { x: "E", y: 40 },

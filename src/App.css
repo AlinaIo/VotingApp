@@ -84,15 +84,40 @@
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #001a33;
   border: none;
   border-radius: 10px;
-  margin-left: 10rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.button:hover {background-color: #3e8e41}
+.button:hover {background-color: #365382}
 
 .button:active {
-  background-color: #3e8e41;
-  transform: translateY(4px);
+  background-color: #365382;
+  transform: translateY(1px);
 }
+
+.charts-header {
+  margin-bottom: 10rem;
+}
+
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10rem;
+
+}
+
+.flex-grid-thirds .col {
+  width: 32%;
+}
+
+
+.charts-header {
+  padding: 10px 16px;
+  background: #001a33;
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
