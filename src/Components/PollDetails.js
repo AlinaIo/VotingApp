@@ -10,15 +10,15 @@ class PollDetails extends Component {
         <Button
           key={i}
           bsStyle="success"
-          className="btn btn-primary addTopicPanel-margins"
+          className="btn btn-primary addTopicPanel-margins button-opt"
         >
           {item}
         </Button>
       );
     });
     return (
-      <div>
-        <h2>Your voting options</h2>
+      <div className="poll-div">
+        <h2>You are voting for: {this.props.topic.name}</h2>
         <div className="option">{buttons}</div>
       </div>
     );
