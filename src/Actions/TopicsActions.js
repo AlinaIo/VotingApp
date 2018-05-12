@@ -9,14 +9,9 @@ const TopicsActions = {
     });
   },
   add: topic => dispatch => {
-    axios
-      .post("/topics", topic)
-      .then(topic => {
-        dispatch({ type: TOPICS_ADD, payload: topic.data });
-      })
-      .catch(() => {
-        window.open(`${baseUrl}login`, "_self");
-      });
+    axios.post("/topics", topic).then(topic => {
+      dispatch({ type: TOPICS_ADD, payload: topic.data });
+    });
   },
   updateTopic: (value, prop) => {
     return { type: TOPICS_UPDATE, payload: { value, prop } };

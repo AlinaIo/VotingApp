@@ -8,13 +8,11 @@ import {
 import createHistory from "history/createBrowserHistory";
 import { TopicsReducer } from "./TopicsReducer";
 import { VotingReducer } from "./VotingReducer";
-import { LoginReducer } from "./LoginReducer";
 const history = createHistory();
 const middleware = routerMiddleware(history);
 const rootReducer = combineReducers({
   Topics: TopicsReducer,
-  Voting: VotingReducer,
-  Login: LoginReducer
+  Voting: VotingReducer
 });
 const store = createStore(rootReducer, {}, applyMiddleware(thunk, middleware));
 
