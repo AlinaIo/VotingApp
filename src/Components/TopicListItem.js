@@ -5,6 +5,9 @@ import { VotingActions } from "../Actions";
 import "./TopicListItem.css";
 class TopicListItemClass extends Component {
   render() {
+    const isSelected =
+      this.props.selectedTopic &&
+      this.props.selectedTopic._id == this.props.topic._id;
     return (
       <div className="topicListItem">
         <div
@@ -13,18 +16,17 @@ class TopicListItemClass extends Component {
             this.props.update(this.props.topic, "selectedTopic");
           }}
         >
-          <i className="fas fa-chevron-circle-down arrow" />
+          <i
+            className={`fas fa-chevron-circle-${
+              isSelected ? "right" : "down"
+            } arrow`}
+          />
           <li className="list-group-item list-group-item-info text-item">
             {this.props.topic.name}
           </li>
         </div>
         <div className="topicListItem-votingPanel">
-          {this.props.selectedTopic &&
-          this.props.selectedTopic._id == this.props.topic._id ? (
-            <VotingPanel />
-          ) : (
-            <div />
-          )}
+          {isSelected ? <VotingPanel /> : <div />}
         </div>
       </div>
     );
