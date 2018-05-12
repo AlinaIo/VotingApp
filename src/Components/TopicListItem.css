@@ -18,4 +18,5 @@
 
 .topicListItem{
   margin: 0.5rem 0;
+  text-shadow: 0.01rem 0.01rem blue;
 }
