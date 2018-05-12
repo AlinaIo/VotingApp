@@ -8,6 +8,7 @@ const Layout = () => {
         <Switch>
           <Route path="/" component={TopicsPage} exact={true} />
           <Route path="/charts" component={ChartsPage} />
+          <Route path="/admin/:accessToken" component={AdminTopicsPage} />
           <Route path="/admin" component={AdminTopicsPage} />
         </Switch>
       </div>

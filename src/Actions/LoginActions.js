@@ -12,6 +12,9 @@ const LoginActions = {
       .catch(() => {
         window.open(`${baseUrl}login`, "_self");
       });
+  },
+  loggedIn: accessToken => {
+    return { type: LOGIN_CHECK_USER, payload: accessToken };
   }
 };
 
