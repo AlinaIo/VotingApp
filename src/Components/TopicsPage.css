@@ -1,0 +1,15 @@
+.topicsPage-panels {
+  display: flex;
+  flex-direction: row;
+}
+.topicsPage-topicsList {
+  flex: 1;
+}
+.topicsPage-votingPanel {
+  display: inline;
+}
+@media only screen and (max-width: 600px) {
+  .topicsPage-votingPanel {
+    display: none;
+  }
+}
