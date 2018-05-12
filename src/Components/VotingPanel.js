@@ -13,7 +13,7 @@ class VotingPanelClass extends Component {
           console.log(this.props);
           this.props.add({
             name: this.props.topic,
-            options: this.props.options.split(","),
+            options: this.props.options.split(", "),
             endDate: this.props.endDate
           });
         }}
