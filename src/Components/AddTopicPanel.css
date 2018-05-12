@@ -29,6 +29,10 @@
   color: #31708f;
 }
 
+.arrow-rotate {
+  transform: rotate(-90deg);
+}
+
 .text-item {
   padding-right: 2%;
 }

@@ -25,7 +25,7 @@ class AddTopicPanelClass extends Component {
           placeholder="Topic"
           ref="ideaName"
           max="100"
-          maxlength="200"
+          maxLength="200"
           min="5"
           required
           className="form-control addTopicPanel-input"
@@ -40,7 +40,7 @@ class AddTopicPanelClass extends Component {
           placeholder="Options (Yes, No)"
           ref="ideaName"
           max="100"
-          maxlength="200"
+          maxLength="200"
           min="5"
           required
           className="form-control addTopicPanel-input"

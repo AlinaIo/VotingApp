@@ -1,14 +1,30 @@
 import React from "react";
-import "./AddTopicPanel.css"
+import "./AddTopicPanel.css";
 
-const TopicListItem = ({ topic }) => {
-  return (
-    <div className="list-item">
-      <i className="fas fa-chevron-circle-down arrow" />
-      <li className="list-group-item list-group-item-info text-item">
-        {topic.name}
-      </li>
-    </div>
-  );
-};
+class TopicListItem extends React.Component {
+  state = {
+    open: false
+  };
+
+  render() {
+    return (
+      <div
+        className="list-item"
+        onClick={() => {
+          console.log("supa");
+          this.setState({ open: !this.state.open });
+        }}
+      >
+        <i
+          className={`fas fa-chevron-circle-down arrow ${
+            this.state.open ? "arrow-rotate" : ""
+          }`}
+        />
+        <li className="list-group-item list-group-item-info text-item">
+          {this.props.topic.name}
+        </li>
+      </div>
+    );
+  }
+}
 export { TopicListItem };
