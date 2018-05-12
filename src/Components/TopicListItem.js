@@ -1,34 +1,43 @@
-import React from "react";
-import "./AddTopicPanel.css";
-import { PollDetails } from "./PollDetails"
-
-class TopicListItem extends React.Component {
-  state = {
-    open: false,
-    display: 'none'
-  };
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { VotingPanel } from "./VotingPanel";
+import { VotingActions } from "../Actions";
+import "./TopicListItem.css";
+class TopicListItemClass extends Component {
   render() {
     return (
-      <div
-        className="list-item"
-        onClick={() => {
-          console.log("supa");
-          this.setState({ open: !this.state.open ? this.state.display : this.state.display = "inline" });
-
-        }}
-      >
-        <i
-          className={`fas fa-chevron-circle-down arrow ${
-            this.state.open ? "arrow-rotate" : ""
-            }`}
-        />
-        <li className="list-group-item list-group-item-info text-item">
-          {this.props.topic.name}
-        </li>
-        <PollDetails style={{ display: this.state.display }} />
+      <div className="topicListItem">
+        <div
+          className="list-item topicListItem-item"
+          onClick={() => {
+            this.props.update(this.props.topic, "selectedTopic");
+          }}
+        >
+          <i className="fas fa-chevron-circle-down arrow" />
+          <li className="list-group-item list-group-item-info text-item">
+            {this.props.topic.name}
+          </li>
+        </div>
+        <div className="topicListItem-votingPanel">
+          {this.props.selectedTopic &&
+          this.props.selectedTopic._id == this.props.topic._id ? (
+            <VotingPanel />
+          ) : (
+            <div />
+          )}
+        </div>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    selectedTopic: state.Voting.selectedTopic
+  };
+}
+const TopicListItem = connect(mapStateToProps, {
+  update: VotingActions.update
+})(TopicListItemClass);
+
 export { TopicListItem };
