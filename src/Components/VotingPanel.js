@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { VotingActions } from "../Actions";
 import "./VotingPanel.css";
-import { PollDetails } from "./PollDetails"
+import { PollDetails } from "./PollDetails";
 class VotingPanelClass extends Component {
   render() {
     return (
@@ -11,14 +11,29 @@ class VotingPanelClass extends Component {
         onSubmit={e => {
           e.preventDefault();
           console.log(this.props);
-          this.props.add({
-            name: this.props.topic,
-            options: this.props.options.split(", "),
-            endDate: this.props.endDate
-          });
+          this.props.save(
+            {
+              topicId: this.props.selectedTopic._id,
+              option: this.props.option
+            },
+            this.props.cnp
+          );
         }}
       >
-        <PollDetails topic={this.props.selectedTopic}/>
+        <input
+          type="text"
+          placeholder="CNP"
+          max="13"
+          maxLength="13"
+          min="13"
+          required
+          className="form-control"
+          value={this.props.cnp}
+          onChange={e => {
+            this.props.update(e.target.value, "cnp");
+          }}
+        />
+        <PollDetails topic={this.props.selectedTopic} />
       </form>
     );
   }
@@ -27,11 +42,13 @@ class VotingPanelClass extends Component {
 function mapStateToProps(state) {
   return {
     cnp: state.Voting.cnp,
-    selectedTopic: state.Voting.selectedTopic
+    selectedTopic: state.Voting.selectedTopic,
+    option: state.Voting.option
   };
 }
 const VotingPanel = connect(mapStateToProps, {
-  update: VotingActions.update
+  update: VotingActions.update,
+  save: VotingActions.send
 })(VotingPanelClass);
 
 export { VotingPanel };

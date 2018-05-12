@@ -1,7 +1,5 @@
 .votingPanel {
-}
-@media only screen and (max-width: 600px) {
-  .votingPanel {
-    /* display: none; */
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

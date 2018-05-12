@@ -3,9 +3,9 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3001/";
 const VotingActions = {
-  send: topic => dispatch => {
-    axios.get("/topics").then(topics => {
-      dispatch({ type: VOTING_SEND, payload: topics.data });
+  send: (data, cnp) => dispatch => {
+    axios.post(`/voting/${cnp}`, data).then(() => {
+      dispatch({ type: VOTING_SEND });
     });
   },
   select: topic => {
