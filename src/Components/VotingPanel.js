@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { TopicsActions } from "../Actions";
-import "./AddTopicPanel.css";
+import { VotingActions } from "../Actions";
+import "./VotingPanel.css";
 
-class AddTopicPanelClass extends Component {
+class VotingPanelClass extends Component {
   render() {
     return (
       <form
-        className="addTopicPanel"
+        className="votingPanel"
         onSubmit={e => {
           e.preventDefault();
           console.log(this.props);
@@ -25,7 +25,6 @@ class AddTopicPanelClass extends Component {
           type="text"
           placeholder="Topic"
           max="100"
-          maxLength="200"
           min="5"
           required
           className="form-control addTopicPanel-input"
@@ -38,7 +37,6 @@ class AddTopicPanelClass extends Component {
           type="text"
           placeholder="Options (Yes, No)"
           max="100"
-          maxLength="200"
           min="5"
           required
           className="form-control addTopicPanel-input"
@@ -66,14 +64,12 @@ class AddTopicPanelClass extends Component {
 
 function mapStateToProps(state) {
   return {
-    topic: state.Topics.newTopic,
-    options: state.Topics.options,
-    endDate: state.Topics.endDate
+    cnp: state.Voting.cnp,
+    selectedTopic: state.Voting.selectedTopic
   };
 }
-const AddTopicPanel = connect(mapStateToProps, {
-  update: TopicsActions.updateTopic,
-  add: TopicsActions.add
-})(AddTopicPanelClass);
+const VotingPanel = connect(mapStateToProps, {
+  update: VotingActions.update
+})(VotingPanelClass);
 
-export { AddTopicPanel };
+export { VotingPanel };

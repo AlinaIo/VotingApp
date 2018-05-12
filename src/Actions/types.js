@@ -1,3 +1,7 @@
-export const TOPICS_ADD="TOPICS_ADD";
-export const TOPICS_GET="TOPICS_GET";
-export const TOPICS_UPDATE="TOPICS_UPDATE";
+export const TOPICS_ADD = "TOPICS_ADD";
+export const TOPICS_GET = "TOPICS_GET";
+export const TOPICS_UPDATE = "TOPICS_UPDATE";
+
+export const VOTING_UPDATE = "VOTING_UPDATE";
+export const VOTING_SEND = "VOTING_SEND";
+export const VOTING_SELECT_TOPIC = "VOTING_SELECT_TOPIC";
