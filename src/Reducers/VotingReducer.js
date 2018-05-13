@@ -25,7 +25,9 @@ const VotingReducer = (state = INITIAL_STATE, action) => {
         error: false
       };
     case VOTING_UPDATE:
-      return { ...state, [action.payload.prop]: action.payload.value };
+      return { ...state, 
+        [action.payload.prop]: action.payload.value,
+        error: false };
     case VOTING_ERROR:
       return {
         ...state,

@@ -5,9 +5,8 @@ import "./VotingPanel.css";
 import { PollDetails } from "./PollDetails";
 class VotingPanelClass extends Component {
   render() {
-    const isError = this.props.error && this.props.submitted;
 
-    return (
+      return (
       <form
         className="votingPanel"
         onSubmit={e => {
@@ -35,7 +34,7 @@ class VotingPanelClass extends Component {
             this.props.update(e.target.value, "cnp");
           }}
         /><br/>
-        {isError ? <h1>Your CNP is invalid or you've already voted for this poll!</h1> : ""}
+        {this.props.error ? <h1>Your CNP is invalid or you've already voted for this poll!</h1> : ""}
         <PollDetails topic={this.props.selectedTopic} />
       </form>
     );
