@@ -10,7 +10,7 @@ class ChartsPage extends Component {
         }
     }
     componentDidMount(){
-        fetch('http://backend-hacktm-2018.westeurope.cloudapp.azure.com:3001/results/2')
+        fetch('http://backend-hacktm-2018.westeurope.cloudapp.azure.com:3001/results/1')
             .then(response => {
                 return response.json();
             })

@@ -3,3 +3,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.errorMessage{
+  color:indianred
+}

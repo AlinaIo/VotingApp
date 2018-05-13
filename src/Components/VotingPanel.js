@@ -34,7 +34,7 @@ class VotingPanelClass extends Component {
             this.props.update(e.target.value, "cnp");
           }}
         /><br/>
-        {this.props.error ? <h1>Your CNP is invalid or you've already voted for this poll!</h1> : ""}
+        {this.props.error ? <h1 className="errorMessage">Your CNP is invalid or you've already voted for this poll!</h1> : ""}
         <PollDetails topic={this.props.selectedTopic} />
       </form>
     );

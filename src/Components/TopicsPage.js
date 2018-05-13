@@ -19,7 +19,6 @@ class TopicsPageClass extends Component {
           <div className="row">
             <article className="col-md-12">
               <h1 className="text-center">Voting list</h1>
-              <h2 className="text-center">Propose a new idea</h2>
               <div className="topicsPage-panels">
                 <div className="col-md-6" style={{ flex: 1 }}>
                   <div className="topicsPage-topicsList">
@@ -49,7 +48,9 @@ class AdminTopicsPageClass extends TopicsPageClass {
   }
 
   renderExtra() {
-    return this.props.loggedIn ? <AddTopicPanel /> : <div />;
+    return this.props.loggedIn ? 
+      <AddTopicPanel />
+      : <div />;
   }
 }
 function mapStateToPropsAdmin(state) {

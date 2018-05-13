@@ -21,8 +21,8 @@ class AddTopicPanelClass extends Component {
           );
         }}
       >
-        <label htmlFor="ideaItem" className="addTopicPanel-margins">
-          Enter your idea
+        <label htmlFor="ideaItem" className="addTopicPanel-margins colorWhite">
+          Propose new idea
         </label>
         <input
           type="text"
