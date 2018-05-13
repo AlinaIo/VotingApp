@@ -19,6 +19,19 @@ class TopicsPageClass extends Component {
           <div className="row">
             <article className="col-md-12">
               <h1 className="text-center">Voting list</h1>
+              <input
+                type="text"
+                placeholder="Search topics"
+                max="100"
+                maxLength="100"
+                min="0"
+                required
+                className="form-control"
+                value={this.props.topicFilter}
+                onChange={e => {
+                  this.props.filter(e.target.value);
+                }}
+              />
               <div className="topicsPage-panels">
                 <div className="col-md-6" style={{ flex: 1 }}>
                   <div className="topicsPage-topicsList">
@@ -48,14 +61,13 @@ class AdminTopicsPageClass extends TopicsPageClass {
   }
 
   renderExtra() {
-    return this.props.loggedIn ? 
-      <AddTopicPanel />
-      : <div />;
+    return this.props.loggedIn ? <AddTopicPanel /> : <div />;
   }
 }
 function mapStateToPropsAdmin(state) {
   return {
-    topics: state.Topics.topics,
+    topics: state.Topics.filtered,
+    topicFilter: state.Topics.filter,
     selectedTopic: state.Voting.selectedTopic,
     loggedIn: state.Login.loggedIn
   };
@@ -63,17 +75,21 @@ function mapStateToPropsAdmin(state) {
 const AdminTopicsPage = connect(mapStateToPropsAdmin, {
   check: LoginActions.check,
   loggedIn: LoginActions.loggedIn,
-  get: TopicsActions.get
+  get: TopicsActions.get,
+  filter: TopicsActions.filter
 })(AdminTopicsPageClass);
 
 function mapStateToProps(state) {
   return {
-    topics: state.Topics.topics,
-    selectedTopic: state.Voting.selectedTopic
+    topics: state.Topics.filtered,
+    selectedTopic: state.Voting.selectedTopic,
+    topics: state.Topics.filtered,
+    topicFilter: state.Topics.filter
   };
 }
 const TopicsPage = connect(mapStateToProps, {
-  get: TopicsActions.get
+  get: TopicsActions.get,
+  filter: TopicsActions.filter
 })(TopicsPageClass);
 
 export { TopicsPage, AdminTopicsPage };

@@ -1,4 +1,4 @@
-import { TOPICS_ADD, TOPICS_GET, TOPICS_UPDATE } from "./types";
+import { TOPICS_ADD, TOPICS_GET, TOPICS_UPDATE, TOPICS_FILTER } from "./types";
 import axios from "axios";
 const baseUrl = "http://localhost:3001/";
 axios.defaults.baseURL = baseUrl;
@@ -20,6 +20,9 @@ const TopicsActions = {
   },
   updateTopic: (value, prop) => {
     return { type: TOPICS_UPDATE, payload: { value, prop } };
+  },
+  filter: value => {
+    return { type: TOPICS_FILTER, payload: value };
   }
 };
 
