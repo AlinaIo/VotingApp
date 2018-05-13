@@ -5,6 +5,7 @@ axios.defaults.baseURL = "http://localhost:3001/";
 const VotingActions = {
   send: (data, cnp) => dispatch => {
     axios.post(`/voting/${cnp}`, data).then(() => {
+      alert("Your vote has been submitted!");
       dispatch({ type: VOTING_SEND });
     })
     .catch(error => {
