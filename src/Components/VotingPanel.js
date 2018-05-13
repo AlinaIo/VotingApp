@@ -20,7 +20,7 @@ class VotingPanelClass extends Component {
             this.props.cnp
           );
         }}
-      >
+      ><br/>
         <input
           type="text"
           placeholder="CNP"
@@ -28,7 +28,7 @@ class VotingPanelClass extends Component {
           maxLength="13"
           min="13"
           required
-          className="form-control"
+          className="form-control cnpInput"
           value={this.props.cnp}
           onChange={e => {
             this.props.update(e.target.value, "cnp");
