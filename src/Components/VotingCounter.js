@@ -40,6 +40,13 @@ class VotingCounter extends Component {
 
     if (t.total <= 0) {
       clearInterval(this.state.timeinterval);
+      this.setState({
+        total: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      });
     }
   }
   initializeClock(endtime) {
@@ -52,7 +59,9 @@ class VotingCounter extends Component {
   render() {
     return (
       <div>
-        <h1>Voting Ends</h1>
+        <h1>
+          {this.state.total === 0 ? "The voting has eneded" : "Voting ends"}
+        </h1>
         <div id="clockdiv">
           <div>
             <span className="days">{this.state.days}</span>
