@@ -44,7 +44,7 @@ const TopicsReducer = (state = INITIAL_STATE, action) => {
           ? state.topics.slice()
           : _.filter(state.topics, function(o) {
               return _.some(action.payload.trim().split(" "), function(word) {
-                return o.name.includes(word);
+                return o.name.toLowerCase().includes(word.toLowerCase());
               });
             });
       return { ...state, filtered, filter: action.payload };
