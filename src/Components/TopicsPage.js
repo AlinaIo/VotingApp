@@ -22,7 +22,21 @@ class TopicsPageClass extends Component {
               <div className="topicsPage-panels">
                 <div className="col-md-6" style={{ flex: 1 }}>
                   <div className="topicsPage-topicsList">
-                    <TopicsList topics={this.props.topics} />
+                    <TopicsList topics={this.props.topics}>
+                      <input
+                        type="text"
+                        placeholder="Search topics"
+                        max="100"
+                        maxLength="100"
+                        min="0"
+                        required
+                        className="form-control"
+                        value={this.props.topicFilter}
+                        onChange={e => {
+                          this.props.filter(e.target.value);
+                        }}
+                      />
+                    </TopicsList>
                   </div>
                   {/* <div className="topicsPage-votingPanel">
                     {this.props.selectedTopic ? <VotingPanel /> : <div />}
@@ -40,22 +54,21 @@ class TopicsPageClass extends Component {
 
 class AdminTopicsPageClass extends TopicsPageClass {
   checks() {
-    if (!this.props.match.params.accessToken) {
-      this.props.check();
-    } else {
-      this.props.loggedIn(this.props.match.params.accessToken);
-    }
+    // if (!this.props.match.params.accessToken) {
+    //   this.props.check();
+    // } else {
+    //   this.props.loggedIn(this.props.match.params.accessToken);
+    // }
   }
 
   renderExtra() {
-    return this.props.loggedIn ? 
-      <AddTopicPanel />
-      : <div />;
+    return this.props.loggedIn ? <AddTopicPanel /> : <div />;
   }
 }
 function mapStateToPropsAdmin(state) {
   return {
-    topics: state.Topics.topics,
+    topics: state.Topics.filtered,
+    topicFilter: state.Topics.filter,
     selectedTopic: state.Voting.selectedTopic,
     loggedIn: state.Login.loggedIn
   };
@@ -63,17 +76,21 @@ function mapStateToPropsAdmin(state) {
 const AdminTopicsPage = connect(mapStateToPropsAdmin, {
   check: LoginActions.check,
   loggedIn: LoginActions.loggedIn,
-  get: TopicsActions.get
+  get: TopicsActions.get,
+  filter: TopicsActions.filter
 })(AdminTopicsPageClass);
 
 function mapStateToProps(state) {
   return {
-    topics: state.Topics.topics,
-    selectedTopic: state.Voting.selectedTopic
+    topics: state.Topics.filtered,
+    selectedTopic: state.Voting.selectedTopic,
+    topics: state.Topics.filtered,
+    topicFilter: state.Topics.filter
   };
 }
 const TopicsPage = connect(mapStateToProps, {
-  get: TopicsActions.get
+  get: TopicsActions.get,
+  filter: TopicsActions.filter
 })(TopicsPageClass);
 
 export { TopicsPage, AdminTopicsPage };

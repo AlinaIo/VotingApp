@@ -32,7 +32,7 @@ class VotingCounter extends Component {
   updateClock(endtime) {
     var t = this.getTimeRemaining(endtime);
 
-    VotingActions.finished(t);
+    //VotingActions.finished(t);
 
     this.setState({
       total: t.total,

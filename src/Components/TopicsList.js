@@ -1,12 +1,14 @@
 import React from "react";
 import _ from "lodash";
 import { TopicListItem } from "./TopicListItem";
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup } from "react-bootstrap";
 
-const TopicsList = ({ topics }) => {
+const TopicsList = ({ topics, children }) => {
   return (
     <div className="container">
-     <ListGroup className = "topicsList">
+      {children}
+      <br />
+      <ListGroup className="topicsList">
         {_.map(topics, topic => {
           return <TopicListItem topic={topic} key={topic._id} />;
         })}

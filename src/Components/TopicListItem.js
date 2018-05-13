@@ -5,12 +5,14 @@ import { VotingActions } from "../Actions";
 import "./TopicListItem.css";
 import { ListGroupItem } from "react-bootstrap";
 import { VotingCounter } from "./VotingCounter";
+import { ChartsPage } from "./ChartsPage";
 
 class TopicListItemClass extends Component {
   render() {
     console.log(this.props)
     const t = Date.parse(new Date(this.props.topic.endDate)) - Date.parse(new Date());
     const expired = t <= 0;
+    console.log(expired)
     const isSelected =
       this.props.selectedTopic &&
       this.props.selectedTopic._id == this.props.topic._id;
@@ -33,15 +35,16 @@ class TopicListItemClass extends Component {
           />
           <div className="topicListItem-side">{this.props.topic.name}</div>
         </ListGroupItem>
-        {isSelected ? (<div>
-          {expired ? (<div className="topicListItem-votingPanel">
-            <VotingPanel />
-          </div>) : <div />}
-          <div className="topicListItem-votingPanel">
-            <VotingCounter endDate={this.props.topic.endDate} />
+        {isSelected ?
+          (<div>
+            <div className="topicListItem-votingPanel">
+              {expired ? <ChartsPage topicId = {this.props.topic._id}/> : <VotingPanel />}
+            </div>
+            <div className="topicListItem-votingPanel">
+              <VotingCounter endDate={this.props.topic.endDate} />
+            </div>
           </div>
-        </div>
-        ) : <div />}
+          ) : <div />}
       </div>
     );
   }
