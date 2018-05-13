@@ -8,6 +8,9 @@ import { VotingCounter } from "./VotingCounter";
 
 class TopicListItemClass extends Component {
   render() {
+    console.log(this.props)
+    const t = Date.parse(new Date(this.props.topic.endDate)) - Date.parse(new Date());
+    const expired = t <= 0;
     const isSelected =
       this.props.selectedTopic &&
       this.props.selectedTopic._id == this.props.topic._id;
@@ -26,32 +29,33 @@ class TopicListItemClass extends Component {
           <i
             className={`fas fa-chevron-circle-${
               isSelected ? "down" : "right"
-            } arrow`}
+              } arrow`}
           />
           <div className="topicListItem-side">{this.props.topic.name}</div>
         </ListGroupItem>
-        <div className="topicListItem-votingPanel">
-          {isSelected ? <VotingPanel /> : <div />}
-        </div>
-        <div className="topicListItem-votingPanel">
-          {isSelected ? (
+        {isSelected ? (<div>
+          {expired ? (<div className="topicListItem-votingPanel">
+            <VotingPanel />
+          </div>) : <div />}
+          <div className="topicListItem-votingPanel">
             <VotingCounter endDate={this.props.topic.endDate} />
-          ) : (
-            <div />
-          )}
+          </div>
         </div>
+        ) : <div />}
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
+  console.log('dada')
   return {
-    selectedTopic: state.Voting.selectedTopic
+    selectedTopic: state.Voting.selectedTopic,
+    finished: VotingActions.finished
   };
 }
 const TopicListItem = connect(mapStateToProps, {
-  update: VotingActions.update
+  update: VotingActions.update,
 })(TopicListItemClass);
 
 export { TopicListItem };

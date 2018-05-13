@@ -1,6 +1,6 @@
 import { TOPICS_ADD, TOPICS_GET, TOPICS_UPDATE } from "./types";
 import axios from "axios";
-const baseUrl = "http://localhost:3001/";
+const baseUrl = "http://backend-hacktm-2018.westeurope.cloudapp.azure.com:3001/";
 axios.defaults.baseURL = baseUrl;
 const TopicsActions = {
   get: () => dispatch => {

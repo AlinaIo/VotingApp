@@ -9,6 +9,7 @@ class PollDetailsClass extends Component {
     this.props.update(option, "option");
   }
   renderButtons() {
+    console.log('props====', this.props);
     return this.props.topic.options.map((item, i) => {
       console.log("test");
       return (

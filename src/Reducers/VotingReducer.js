@@ -1,4 +1,4 @@
-import { VOTING_SELECT_TOPIC, VOTING_UPDATE, VOTING_SEND, VOTING_ERROR } from "../Actions";
+import { VOTING_SELECT_TOPIC, VOTING_UPDATE, VOTING_SEND, VOTING_ERROR, FINISHED_VOTING } from "../Actions";
 
 const INITIAL_STATE = {
   selectedTopic: undefined,
@@ -28,6 +28,11 @@ const VotingReducer = (state = INITIAL_STATE, action) => {
       return { ...state, 
         [action.payload.prop]: action.payload.value,
         error: false };
+      case FINISHED_VOTING:
+      console.log('dadada')
+        return { ...state, 
+          [action.payload.prop]: action.payload.value,
+          error: false };
     case VOTING_ERROR:
       return {
         ...state,

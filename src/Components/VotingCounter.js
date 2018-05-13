@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { VotingActions } from "../Actions";
 import "./VotingCounter.css";
 
 class VotingCounter extends Component {
@@ -30,6 +31,9 @@ class VotingCounter extends Component {
   }
   updateClock(endtime) {
     var t = this.getTimeRemaining(endtime);
+
+    VotingActions.finished(t);
+
     this.setState({
       total: t.total,
       days: t.days,
@@ -60,7 +64,7 @@ class VotingCounter extends Component {
     return (
       <div>
         <h1>
-          {this.state.total === 0 ? "The voting has eneded" : "Voting ends in"}
+          {this.state.total === 0 ? "The voting has ended" : "Voting ends"}
         </h1>
         <div id="clockdiv">
           <div>
