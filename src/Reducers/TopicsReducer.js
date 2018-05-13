@@ -27,20 +27,26 @@ const TopicsReducer = (state = INITIAL_STATE, action) => {
       };
     }
     case TOPICS_GET:
-      const filtered = _.filter(action.payload, function(o) {
-        return _.some(o.name.split(" "), function(word) {
-          return word.includes(state.filter);
-        });
-      });
+      const filtered =
+        state.filter == ""
+          ? action.payload.slice()
+          : _.filter(action.payload, function(o) {
+              return _.some(state.filter.trim().split(" "), function(word) {
+                return o.name.includes(word);
+              });
+            });
       return { ...state, topics: action.payload, filtered };
     case TOPICS_UPDATE:
       return { ...state, [action.payload.prop]: action.payload.value };
     case TOPICS_FILTER: {
-      const filtered = _.filter(state.topics, function(o) {
-        return _.some(o.name.split(" "), function(word) {
-          return word.includes(action.payload);
-        });
-      });
+      const filtered =
+        action.payload == ""
+          ? state.topics.slice()
+          : _.filter(state.topics, function(o) {
+              return _.some(action.payload.trim().split(" "), function(word) {
+                return o.name.includes(word);
+              });
+            });
       return { ...state, filtered, filter: action.payload };
     }
     default:

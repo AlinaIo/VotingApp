@@ -19,23 +19,24 @@ class TopicsPageClass extends Component {
           <div className="row">
             <article className="col-md-12">
               <h1 className="text-center">Voting list</h1>
-              <input
-                type="text"
-                placeholder="Search topics"
-                max="100"
-                maxLength="100"
-                min="0"
-                required
-                className="form-control"
-                value={this.props.topicFilter}
-                onChange={e => {
-                  this.props.filter(e.target.value);
-                }}
-              />
               <div className="topicsPage-panels">
                 <div className="col-md-6" style={{ flex: 1 }}>
                   <div className="topicsPage-topicsList">
-                    <TopicsList topics={this.props.topics} />
+                    <TopicsList topics={this.props.topics}>
+                      <input
+                        type="text"
+                        placeholder="Search topics"
+                        max="100"
+                        maxLength="100"
+                        min="0"
+                        required
+                        className="form-control"
+                        value={this.props.topicFilter}
+                        onChange={e => {
+                          this.props.filter(e.target.value);
+                        }}
+                      />
+                    </TopicsList>
                   </div>
                   {/* <div className="topicsPage-votingPanel">
                     {this.props.selectedTopic ? <VotingPanel /> : <div />}
