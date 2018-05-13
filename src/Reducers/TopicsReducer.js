@@ -19,9 +19,18 @@ const TopicsReducer = (state = INITIAL_STATE, action) => {
     case TOPICS_ADD: {
       const newTopics = state.topics.slice();
       newTopics.push(action.payload);
+      const filtered =
+        state.filter == ""
+          ? newTopics.slice()
+          : _.filter(newTopics, function(o) {
+              return _.some(state.filter.trim().split(" "), function(word) {
+                return o.name.includes(word);
+              });
+            });
       return {
         ...state,
         topics: newTopics,
+        filtered,
         newTopic: "",
         options: ""
       };
