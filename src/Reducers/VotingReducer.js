@@ -1,17 +1,19 @@
-import { VOTING_SELECT_TOPIC, VOTING_UPDATE, VOTING_SEND } from "../Actions";
+import { VOTING_SELECT_TOPIC, VOTING_UPDATE, VOTING_SEND, VOTING_ERROR } from "../Actions";
 
 const INITIAL_STATE = {
   selectedTopic: undefined,
   cnp: "",
   option: "",
-  submitted: false
+  submitted: false,
+  error: false
 };
 const VotingReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case VOTING_SELECT_TOPIC: {
       return {
         ...state,
-        selectedTopic: action.payload
+        selectedTopic: action.payload,
+        error: false
       };
     }
     case VOTING_SEND:
@@ -19,10 +21,21 @@ const VotingReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cnp: "",
         option: "",
-        submitted: true
+        submitted: true,
+        error: false
       };
     case VOTING_UPDATE:
-      return { ...state, [action.payload.prop]: action.payload.value };
+      return { ...state, 
+        [action.payload.prop]: action.payload.value,
+        error: false };
+    case VOTING_ERROR:
+      return {
+        ...state,
+        cnp: "",
+        option: "",
+        submitted: true,
+        error: true
+      };
     default:
       return state;
   }

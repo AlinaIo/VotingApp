@@ -5,7 +5,8 @@ import "./VotingPanel.css";
 import { PollDetails } from "./PollDetails";
 class VotingPanelClass extends Component {
   render() {
-    return (
+
+      return (
       <form
         className="votingPanel"
         onSubmit={e => {
@@ -32,7 +33,8 @@ class VotingPanelClass extends Component {
           onChange={e => {
             this.props.update(e.target.value, "cnp");
           }}
-        />
+        /><br/>
+        {this.props.error ? <h1>Your CNP is invalid or you've already voted for this poll!</h1> : ""}
         <PollDetails topic={this.props.selectedTopic} />
       </form>
     );
@@ -43,12 +45,15 @@ function mapStateToProps(state) {
   return {
     cnp: state.Voting.cnp,
     selectedTopic: state.Voting.selectedTopic,
-    option: state.Voting.option
+    option: state.Voting.option,
+    error: state.Voting.error,
+    submitted: state.Voting.submitted
   };
 }
 const VotingPanel = connect(mapStateToProps, {
   update: VotingActions.update,
-  save: VotingActions.send
+  save: VotingActions.send,
+  select: VotingActions.select
 })(VotingPanelClass);
 
 export { VotingPanel };
