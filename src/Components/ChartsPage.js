@@ -28,24 +28,18 @@ class ChartsPage extends Component {
         return (
             <div>
                 <div className="charts-header">
-                    <h1>Do you want to save the world?</h1>
+                    <h1>{this.state.results.topicName}</h1>
                 </div>
-                <div className="flex-grid-thirds">
-                    <button className="button">Yes</button>
-                    <button className="button">No</button>
-                    <button className="button">I don't care</button>
-                </div>
-                <div className="flex-grid">
-                    <div className="col">
-                    </div>
+                <div className="flex-grid">                    
                     <div className="col">
                         <OurPieChart voteresults={this.state.results} />
                     </div>
+                </div>
+                <div className="flex-grid">
                     <div className="col">
                         <OurLineChart />
                     </div>
-                    <div className="col">
-                    </div>
+                    
                 </div>
             </div>
         );
