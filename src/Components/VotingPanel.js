@@ -14,6 +14,7 @@ class VotingPanelClass extends Component {
           console.log(this.props);
           this.props.save(
             {
+              userId: this.props.cnp,
               topicId: this.props.selectedTopic._id,
               option: this.props.option
             },
