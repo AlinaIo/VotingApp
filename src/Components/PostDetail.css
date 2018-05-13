@@ -4,6 +4,8 @@
 .button-opt {
   padding: 3%;
   margin: 2%;
+  background-image: linear-gradient(to bottom,#008161 0,#419641 100%) !important;
+
 }
 .option {
   width: 20em !important;

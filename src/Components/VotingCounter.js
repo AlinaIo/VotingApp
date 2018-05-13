@@ -60,7 +60,7 @@ class VotingCounter extends Component {
     return (
       <div>
         <h1>
-          {this.state.total === 0 ? "The voting has eneded" : "Voting ends"}
+          {this.state.total === 0 ? "The voting has eneded" : "Voting ends in"}
         </h1>
         <div id="clockdiv">
           <div>
